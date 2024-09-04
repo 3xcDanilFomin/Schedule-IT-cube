@@ -1,12 +1,12 @@
-import { ISchedule } from '../../../../types/types';
+import { ILesson } from '../../../../types/types';
 import styles from './style.module.scss';
 
-export const ScheduleItem: React.FC<ISchedule> = ({
+export const ScheduleItem: React.FC<ILesson> = ({
   startTime,
   endTime,
-  directions,
-  office,
-  group,
+  subject,
+  roomNumber,
+  groupName,
 }) => {
   return (
     <li className={styles['schedule__item']}>
@@ -17,12 +17,12 @@ export const ScheduleItem: React.FC<ISchedule> = ({
       </div>
       <div className={styles['schedule__right']}>
         <div className={styles['schedule__right-top']}>
-          <h2 className={styles['schedule__direction']}>{directions}</h2>
+          <h2 className={styles['schedule__direction']}>{subject}</h2>
           <span
             className={styles['schedule__office']}
-          >{`${office} кабинет`}</span>
+          >{`${roomNumber} кабинет`}</span>
         </div>
-        <span className={styles['schedule__group']}>{`Группа: ${group}`}</span>
+        <span className={styles['schedule__group']}>{`Группа: ${groupName}`}</span>
       </div>
     </li>
   );

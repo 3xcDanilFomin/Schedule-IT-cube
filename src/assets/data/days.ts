@@ -1,6 +1,6 @@
-import { IDaysOfWeek } from '../../types/types';
+import { IWeekDays } from '../../types/types';
 
-export const daysOfWeek: IDaysOfWeek = {
+export const daysOfWeek: IWeekDays = {
   monday: 'Пн',
   tuesday: 'Вт',
   wednesday: 'Ср',

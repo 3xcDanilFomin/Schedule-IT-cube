@@ -1,0 +1,167 @@
+@import '../../../../styles/utils/variables';
+
+.schedule {
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &:nth-child(-n+2) {
+      .schedule__time {
+        color: #909298;
+      }
+
+      .schedule__indicator {
+        &::after {
+          border: 3.5px solid #aee9fa;
+          background-color: $color-black;
+        }
+      }
+
+      .schedule__right {
+        background-color: #aee9fa;
+      }
+
+      .schedule__office {
+        color: #eaeef0;
+        background-color: #64848e;
+      }
+
+      .schedule__group {
+        color: #05576d;
+      }
+    }
+
+    &:nth-child(n + 3):nth-child(-n + 4) {
+      .schedule__indicator {
+        &::after {
+          border: 3.5px solid #fdf984;
+          background-color: $color-black;
+        }
+      }
+
+      .schedule__right {
+        background-color: #fdf984;
+      }
+
+      .schedule__office {
+        color: #eaeef0;
+        background-color: #8e8c4d;
+      }
+
+      .schedule__group {
+        color: #706e3d;
+      }
+    }
+
+    &:nth-child(n + 5):nth-child(-n + 6) {
+      .schedule__indicator {
+        &::after {
+          border: 3.5px solid #77d17d;
+          background-color: $color-black;
+        }
+      }
+
+      .schedule__right {
+        background-color: #77d17d;
+      }
+
+      .schedule__office {
+        color: #eaeef0;
+        background-color: #34a33c;
+      }
+
+      .schedule__group {
+        color: #315e34;
+      }
+    }
+
+    &:nth-child(n + 7):nth-child(-n + 8) {
+      .schedule__indicator {
+        &::after {
+          border: 3.5px solid #f5bec8;
+          background-color: $color-black;
+        }
+      }
+
+      .schedule__right {
+        background-color: #f5bec8;
+      }
+
+      .schedule__office {
+        color: #eaeef0;
+        background-color: #a24b5b;
+      }
+
+      .schedule__group {
+        color: #69454b;
+      }
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__time {
+    font-size: 14px;
+    color: #909298;
+  }
+
+  &__indicator {
+    position: relative;
+    display: block;
+    width: 70px;
+    height: 2px;
+    margin-inline-start: 8px;
+    background-color: #2f3137;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: stretch;
+    gap: 6px;
+    padding: 12px;
+    border-radius: 12px;
+    color: $color-black;
+
+    &-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+  }
+
+  &__direction {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  &__office {
+    padding: 3px 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-wrap: nowrap;
+    border-radius: 6px;
+    border-bottom: 2.5px solid $color-black;
+  }
+
+  &__group {
+    font-size: 12px;
+    font-weight: 800;
+  }
+}

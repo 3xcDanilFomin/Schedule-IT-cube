@@ -1,0 +1,65 @@
+@import '../../../styles/utils/variables';
+
+.date {
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    background-color: #1f242f;
+    padding: 24px 20px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
+    transition: background-color $animation, box-shadow $animation,
+      transform $animation;
+
+    &--active {
+      background-color: $color-accent;
+      box-shadow: 0px 12px 24px rgba($color-accent, 0.3);
+
+      &::after {
+        transform: translateX(-50%) scale(1);
+      }
+
+      & > .date__day-week,
+      .date__day-month {
+        color: $color-white;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      left: 50%;
+      bottom: 10%;
+      border-radius: 50%;
+      background-color: $color-white;
+      transform: translateX(-50%) scale(0);
+      transition: transform $animation;
+    }
+
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+
+  &__day {
+    &-month {
+      font-size: 18px;
+      color: $color-white;
+    }
+
+    &-week {
+      color: $color-primary;
+    }
+
+    &-month,
+    &-week {
+      font-weight: 600;
+      transition: color $animation;
+    }
+  }
+}

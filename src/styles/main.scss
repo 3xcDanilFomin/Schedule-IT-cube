@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import './utils/_reset';
+@import './utils/_variables';
+
+body {
+  background-color: $color-main;
+  color: $color-white;
+  font-size: 16px;
+  font-family: 'Montserrat';
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.container {
+  max-width: 1440px;
+  padding-inline: 24px;
+  margin: 0 auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}

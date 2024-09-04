@@ -1,0 +1,17 @@
+@import '../../styles/utils/variables';
+
+.date {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__current {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &__schedule {
+    font-weight: 300;
+    color: $color-primary;
+  }
+}

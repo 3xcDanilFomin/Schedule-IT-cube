@@ -25,9 +25,9 @@ export const ScheduleList = () => {
                 key={item.startTime}
                 startTime={item.startTime}
                 endTime={item.endTime}
-                directions={item.subject}
-                office={item.roomNumber}
-                group={item.groupName}
+                subject={item.subject}
+                roomNumber={item.roomNumber}
+                groupName={item.groupName}
               />
             ))
           ) : (

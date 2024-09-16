@@ -15,25 +15,25 @@ export const ScheduleList = () => {
       currentDay as keyof IWeeklySchedule
     ] || null;
 
+  if (!currentSchedule) {
+    return <DateSelectionPrompt />;
+  }
+
   return (
     <div className={styles['schedule__wrapper']}>
       <h1 className={styles['schedule__title']}>Расписание</h1>
       <ul className={styles['schedule__list']}>
         <div className={styles['schedule__list-wrapper']}>
-          {currentSchedule ? (
-            currentSchedule.map((item) => (
-              <ScheduleItem
-                key={item.startTime}
-                startTime={item.startTime}
-                endTime={item.endTime}
-                subject={item.subject}
-                roomNumber={item.roomNumber}
-                groupName={item.groupName}
-              />
-            ))
-          ) : (
-            <DateSelectionPrompt />
-          )}
+          {currentSchedule.map((item) => (
+            <ScheduleItem
+              key={item.startTime}
+              startTime={item.startTime}
+              endTime={item.endTime}
+              subject={item.subject}
+              roomNumber={item.roomNumber}
+              groupName={item.groupName}
+            />
+          ))}
         </div>
       </ul>
     </div>

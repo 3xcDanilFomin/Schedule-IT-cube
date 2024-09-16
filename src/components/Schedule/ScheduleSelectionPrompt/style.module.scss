@@ -1,0 +1,22 @@
+@import '../../../styles/utils/variables';
+
+.schedule-selection {
+  height: calc(100dvh - 108px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+  &__icon {
+    fill: $color-accent;
+    height: 256px;
+    width: 256px;
+  }
+
+  &__description {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+  }
+}

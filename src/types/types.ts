@@ -1,6 +1,6 @@
 export interface IDateInfo {
   dayOfWeek: string;
-  dayOfMonth: string;
+  dayOfMonth: number | null;
 }
 
 export interface ILesson {
@@ -23,6 +23,11 @@ export interface IWeeklySchedule {
   sunday: IDailySchedule;
 }
 
+export interface ISchedule {
+  robotics: IWeeklySchedule;
+  web: IWeeklySchedule;
+}
+
 export interface IWeekDays {
   monday: string;
   tuesday: string;
@@ -34,6 +39,14 @@ export interface IWeekDays {
 }
 
 export interface IScheduleContext {
+  currentDirection: string;
+  updateCurrentDirection: (direction: string) => void;
   currentDay: string;
-  updateCurrentDay: (day: string | null) => void;
+  updateCurrentDay: (day: string) => void;
+}
+
+export interface IDirection {
+  id: number;
+  label: string;
+  name: string;
 }

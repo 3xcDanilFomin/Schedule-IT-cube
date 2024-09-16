@@ -1,0 +1,47 @@
+@import '../../../styles/utils/variables';
+
+.direction {
+  overflow: hidden;
+  text-align: center;
+
+  &__btn {
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: $color-white;
+    background-color: transparent;
+    padding-bottom: 1px;
+    outline: none;
+    border: none;
+    transition: transform $animation;
+
+    &--active {
+      color: rgba($color-accent, 1);
+      border-bottom: 2px solid $color-accent;
+    }
+
+    &::after {
+      content: attr(title);
+      position: absolute;
+      left: 0;
+      top: 100%;
+      color: $color-accent;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:not(.direction__btn--active) {
+      &:focus {
+        -webkit-transform: translateY(-110%);
+        -moz-transform: translateY(-110%);
+        transform: translateY(-110%);
+      }
+    }
+  }
+}

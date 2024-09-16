@@ -1,8 +1,17 @@
-import React, { createContext, useState, ReactNode, useEffect } from 'react';
-
+import React, { createContext, useState, ReactNode } from 'react';
 import { IScheduleContext } from '../types/types';
 
+const getLocalStorageValue = (key: string, defaultValue: string) => {
+  return JSON.parse(localStorage.getItem(key) || JSON.stringify(defaultValue));
+};
+
+const setLocalStorageValue = (key: string, value: string) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
+
 export const ScheduleContext = createContext<IScheduleContext>({
+  currentDirection: '',
+  updateCurrentDirection: () => {},
   currentDay: '',
   updateCurrentDay: () => {},
 });
@@ -14,26 +23,34 @@ interface ScheduleProviderProps {
 export const ScheduleProvider: React.FC<ScheduleProviderProps> = ({
   children,
 }) => {
-  const [currentDay, setCurrentDay] = useState<string>(() => {
-    return JSON.parse(localStorage.getItem('currentDay') || '""');
-  });
+  const [currentDirection, setCurrentDirection] = useState<string>(() =>
+    getLocalStorageValue('currentDirection', ''),
+  );
 
-  const updateCurrentDay = (day: string | null) => {
-    if (day !== null) {
-      setCurrentDay(day);
-      localStorage.setItem('currentDay', JSON.stringify(day));
-    }
+  const [currentDay, setCurrentDay] = useState<string>(() =>
+    getLocalStorageValue('currentDay', ''),
+  );
+
+  const updateCurrentDay = (day: string) => {
+    setCurrentDay(day);
+    setLocalStorageValue('currentDay', day);
   };
 
-  useEffect(() => {
-    const storedDay = localStorage.getItem('currentDay');
-    if (storedDay) {
-      setCurrentDay(JSON.parse(storedDay));
-    }
-  }, []);
+  const updateCurrentDirection = (direction: string) => {
+    setCurrentDirection(direction);
+    setLocalStorageValue('currentDirection', direction);
+    updateCurrentDay('');
+  };
 
   return (
-    <ScheduleContext.Provider value={{ currentDay, updateCurrentDay }}>
+    <ScheduleContext.Provider
+      value={{
+        currentDirection,
+        updateCurrentDirection,
+        currentDay,
+        updateCurrentDay,
+      }}
+    >
       {children}
     </ScheduleContext.Provider>
   );

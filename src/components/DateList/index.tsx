@@ -1,13 +1,18 @@
 import { DateItem } from './DateItem';
 import { daysOfWeek } from '../../assets/data/days';
 import { schedule } from '../../assets/data/schedule';
+import { getDateOfWeekday } from '../../helpers/getDateOfWeekday';
 
 import styles from './style.module.scss';
+import { useContext } from 'react';
+import { ScheduleContext } from '../../context/ScheduleContext';
 
 export const DateList: React.FC = () => {
-  const activeScheduleDays = Object.entries(schedule).filter(
-    ([, scheduleOfDay]) => Boolean(scheduleOfDay),
-  );
+  const { currentDirection } = useContext(ScheduleContext);
+
+  const activeScheduleDays = Object.entries(
+    schedule[currentDirection as keyof typeof schedule],
+  ).filter(([, scheduleOfDay]) => Boolean(scheduleOfDay));
 
   const activeDays = activeScheduleDays.map(([day]) => day);
 
@@ -16,7 +21,7 @@ export const DateList: React.FC = () => {
       {activeDays.map((day) => (
         <DateItem
           key={day}
-          dayOfMonth="1"
+          dayOfMonth={getDateOfWeekday(day)}
           dayOfWeek={daysOfWeek[day as keyof typeof daysOfWeek]}
           dayName={day}
         />

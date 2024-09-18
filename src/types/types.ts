@@ -26,6 +26,7 @@ export interface IWeeklySchedule {
 export interface ISchedule {
   robotics: IWeeklySchedule;
   web: IWeeklySchedule;
+  cyberСlub: IWeeklySchedule;
 }
 
 export interface IWeekDays {

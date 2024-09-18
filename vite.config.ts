@@ -7,11 +7,13 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
         name: 'IT-Cube: Расписание Занятий',
         short_name: 'Расписание IT-Cube',
-        description: 'IT-Cube: Расписание Занятий — это удобное приложение, разработанное для родителей и учеников образовательного пространства IT-Cube. С его помощью вы сможете эффективно планировать учебный процесс и следить за расписанием занятий.',
+        description:
+          'IT-Cube: Расписание Занятий — это удобное приложение, разработанное для родителей и учеников образовательного пространства IT-Cube. С его помощью вы сможете эффективно планировать учебный процесс и следить за расписанием занятий.',
         start_url: '/',
         display: 'standalone',
         background_color: '#141924',
